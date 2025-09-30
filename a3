@@ -136,11 +136,11 @@ async def scheduled_price_update(app):
         try:
             for msg in messages:
                 await app.bot.send_message(chat_id=CHANNEL_CHAT_ID, text=msg)
-                await asyncio.sleep(1)
+                await asyncio.sleep(2)
             logger.info("پیام‌های قیمت‌ها به کانال ارسال شدند.")
         except Exception as e:
             logger.error(f"خطا در ارسال پیام به کانال: {e}")
-        await asyncio.sleep(300)
+        await asyncio.sleep(600)
 
 async def main():
     app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
@@ -161,3 +161,4 @@ if __name__ == "__main__":
     import nest_asyncio
     nest_asyncio.apply()
     asyncio.run(main())
+
